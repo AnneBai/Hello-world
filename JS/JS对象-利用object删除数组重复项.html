@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+    <style>
+      
+      
+    </style>
+  </head>
+  <body>
+    
+    
+    
+  <script>
+    /*1，把数组转换成对象；
+	*2，把数组中的值变成对象的key；
+	*3，把新对象再还原成数组。 */
+	function toObj(arr) {
+	  var obj={};
+	  var j=arr.length;
+	  for (var i=0; i<j; i++) {
+	    obj[arr[i]]=true;
+	  }
+	  return obj;
+	}
+	function toArr(obj1) {
+	  var arr1=[];
+	  for (var attr in obj1){
+	    if (obj1.hasOwnProperty(attr))
+	    arr1.push(attr);
+	  }
+	  return arr1;
+	}
+    var a=[1,1,2,2,3,3,4,5,3,2,1,7,8,9,7,9];
+	var obj=toObj(a);
+	var a1=toArr(obj);
+	alert(a1);
+	
+	
+	
+	
+  </script>
+  </body>
+</html>

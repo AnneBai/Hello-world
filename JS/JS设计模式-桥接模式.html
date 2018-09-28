@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+    
+  </head>
+  <body>
+    <form action="#demo" id="info">
+      username: <input type="text" name="username" placeholder="username"/><br/>
+      password: <input type="password" name="password" placeholder="password"/><br/>
+      gender<br/>female<input type="radio" name="gender" value="female"/>
+      male<input type="radio" name="gender" value="male"/><br/>
+      habits:<br/>
+      <input type="checkbox" name="habit" value="football"/>football <br/>
+      <input type="checkbox" name="habit" value="basketball"/>basketball <br/>
+      <input type="checkbox" name="habit" value="swimming"/>swimming <br/>
+      <input type="checkbox" name="habit" value="running"/>running <br/>
+      
+      <input type="submit" value="submit">
+      <input type="reset" value="reset">
+      
+    </form>
+    <button id="btn" >sendMsg</button>
+  <script src="Iface-common.js"></script> 
+  <script>
+    
+      var btn = document.getElementById("btn");
+      EventUtil.addHandler(btn, "click", bridgeSend);
+      //前台和后台的动作解耦，使两段代码独立；
+      function bridgeSend(){
+        var msg = this.value;
+        sendInfo(msg);
+      }
+    
+      function sendInfo(msg) {
+        //省略代码
+        alert("已发送"+msg+"数据到后台");
+      }
+          
+//特权函数
+      var publicClass = function () {
+        var name = "ahuahua";
+        this.getName = function () {
+          return name;
+        };
+      };
+      var a = new publicClass();
+      alert(a.getName())
+          
+  
+    
+    
+    
+  </script>
+  </body>
+</html>

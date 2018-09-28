@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+    <script src="jquery-3.3.1.js"></script>
+      <style>
+    *{
+      margin:0px;padding:0px;
+    }
+    #d1{
+      width:300px;
+      height:100px;
+      background-color: aqua;
+    }
+    #d2{
+      height:100px;
+      width:300px;
+      background-color: blueviolet;
+      position:relative;
+      top:50px;
+      left:50px;
+    }
+    #d3{
+      height:100px;
+      width:300px;
+      background-color: chartreuse;
+      
+      left:100px;
+      top:100px;
+      
+    }
+    #d4{
+      height:100px;
+      width:200px;
+      background-color: darkcyan;
+      position:fixed;
+      right:200px;
+      top:250px;
+    }
+    #d4_1{
+      height:50px;
+      width:50px;
+      background-color:antiquewhite;
+      position:absolute;
+      margin:auto;
+      left:0px;right:0px;
+      top:0px;bottom:0px;
+      
+    }
+    
+    #d5{
+      height:100px;
+      width:300px;
+      background-color: coral;  
+    }
+  
+  </style>
+  </head>
+  <body id="body1">
+    <div id="d1">11111111111</div>
+    <div id="d2">22222222222</div>
+    <div id="d3">33333333333</div>
+    <div id="d4">44444444444<div id="d4_1">414141414</div></div>
+    <div id="d5">55555555555</div>
+    <hr/>
+    <input type="text" id="inp" value=123 />
+  <script>
+    //必须在错误对应函数内使用try-catch才能捕获错误，其内部函数的错误无法捕获;
+    /*
+    $(function(){
+      try{
+        $("#d2").click(function(){
+          try{
+            $("#d3").fadeOut(1000,function(){
+              try{
+                alert("d3 is hidden");
+              }catch(error){
+                alert("d3-1"+error.message);
+              } 
+            });
+          }catch(error){
+            alert("d3-"+error.message);
+          } 
+       });
+      }catch(error){
+        alert("d2-"+error.message);
+      }
+    });
+    */
+    function a(){
+      var inp = $("#inp").value;
+      return inp.length;     
+    }
+   
+    function aa(){
+      a();
+    }
+      
+    $(function(){
+      $("#d2").hide(1000,function(){
+      try{
+        aa();
+        
+      }catch(error){
+        alert("outer "+error.message)
+      }
+      });
+    });
+    
+  </script>
+  </body>
+</html>

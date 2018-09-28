@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+    <style>
+      
+      
+    </style>
+  </head>
+  <body>
+    
+    
+    
+  <script>
+    /*分析问题，解决步骤：
+    ECMA forEach方法适合一维数组
+	var arr=[1,2,3,4,5]
+	arr.forEach(function(item, index, array){
+	  alert(item);
+	});
+	利用JS实现each方法，能遍历多维数组；
+    */
+	// try...catch
+	// 
+	var arr=[1,2,3,[4,5,[6]]];
+	Array.prototype.each = function(fn){
+	  try{
+	    this.i || (this.i=0);
+		if(this.length > 0 && fn.constructor == Function) {
+		  while (this.i < this.length) {
+		    var e = this[this.i];
+			if (e && e.constructor == Array){
+			  e.each(fn);
+			}else{
+			  fn.call(e,e);
+			}
+			this.i++;
+		  } 
+		  this.i=null;
+		}
+	  } catch(err) {
+        //do somtthing	  
+	  }
+	  return this;
+	}
+    arr.each(function(item){
+	alert(item)
+	});
+	
+	
+  </script>
+  </body>
+</html>

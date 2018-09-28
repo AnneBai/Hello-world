@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>工厂模式</title>
+
+  </head>
+  <body>
+    <script src="interface-factory.js"></script>>
+  <script>
+    var carInterface = new Iface.Interface("carInterface",["start", "run"])
+    //生产车的工厂，目的只是生产车，单体模式；
+    var carFactory = {
+        aCar: function (type) {
+          var car;
+          switch (type) {
+            case "Benz": car = new Benz(); break;
+            case "BMW": car = new BMW(); break;
+            default:"there's no match";
+          };
+          return car;
+          //检验接口中的方法是否都已实现；
+          Iface.Interface.ensureImp(car, carInterface);
+        } 
+      };
+    //卖车商店--根据类型提车并卖给客户（sellCar方法，return 车）；
+    function CarShop() {};
+    CarShop.prototype = {
+        constructor: CarShop,
+        sellCar: function (type) {
+          var car = carFactory.aCar(type);
+          return car;
+        }
+    };
+    
+    //车(类)产品需要实现的功能(方法)(接口中提到的两种方法)
+    var Car = function () {};
+    Car.prototype = {
+      constructor:Car,
+      start: function () {
+        alert(this.constructor.name+" start");
+    },
+      run: function () {
+        alert(this.constructor.name+" run");
+      }
+    };
+    
+    //继承基本车类原型的不同车型函数；
+    function Benz() {};
+    Iface.extantProto(Benz, Car);
+    
+    function BMW() {};
+    Iface.extantProto(BMW, Car);
+    
+    //实例化车商店
+    var carShop = new CarShop();
+    //实例检验
+    var car1 = carShop.sellCar("Benz");
+    var car2 = carShop.sellCar("BMW");
+    
+    car1.start();
+    car2.run();
+
+    
+  </script>
+  </body>
+</html>

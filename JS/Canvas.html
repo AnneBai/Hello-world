@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>菜鸟教程(runoob.com)</title>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+ 
+</head>
+
+<body id="container">
+  <canvas id="drawing" width="600px" height="450px">A drawing of something</canvas>
+  
+  <script>
+  // Get the canvas and the context;
+    var drawing = $("#drawing")[0];
+    //if (drawing.getContext) {
+      //var context = drawing.getContext("2d");
+      // ......
+    //}
+    
+  //get the canvas image in png
+    /*if (drawing.getContext) {
+      var imgURL = drawing.toDataURL("image/png");
+      var image = document.createElement("img");
+      image.src = imgURL;
+      document.body.appendChild(image);
+    }*/
+  //fill and stroke
+   /* if (drawing.getContext) {
+      var context = drawing.getContext("2d");
+    
+      context.fillStyle = "rgba(255,0,0,0.5)";
+      context.fillRect(10, 10, 100, 100);
+      context.fillStyle = "rgba(0,255,0,0.5)";
+      context.fillRect(40, 40, 100, 100);
+      context.fillStyle = "rgba(0,0,255,0.5)";
+      context.fillRect(70, 70, 100, 100);
+      context.strokeStyle = "red";
+      context.strokeRect(100, 100, 100, 100);
+      context.strokeStyle = "green";
+      context.strokeRect(130, 130, 100, 100);
+      context.strokeStyle = "blue";
+      context.strokeRect(160, 160, 100, 100);
+      context.clearRect(60, 60, 20, 20);
+    }
+    
+    //绘制钟表盘
+      context.beginPath();
+      context.arc(200, 200, 100, 0, 2*Math.PI, false);
+      context.moveTo(292, 200);
+      context.arc(200, 200, 92, 0, 2*Math.PI, false);
+      context.moveTo(210, 200);
+      context.arc(200, 200, 10, 0, 2*Math.PI, false);
+    //转换坐标原点
+      context.translate(200, 200);
+    //绘制文本 
+      context.font = "bold 16px Arial";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText("12", 0, -80);
+      context.fillText("3", 80, 0);
+      context.fillText("6", 0, 80);
+      context.fillText("9", -80, 0);
+    //旋转坐标角度
+      context.rotate(2);
+    //绘制表针
+      context.moveTo(0, -10);
+      context.lineTo(0, -70);
+      context.moveTo(-10, 0);
+      context.lineTo(-55, 0);
+      context.moveTo(10, 0);
+      context.lineTo(80, 0);
+      context.stroke();
+      context.closePath();  
+    }
+    */
+    //阴影的设置
+    /*
+    if (drawing.getContext) {
+      var context = drawing.getContext("2d");
+      context.shadowOffsetX = 5;
+      context.shadowOffsetY = 5;
+      context.shadowBlur = 4;
+      context.shadowColor = "rgba(0, 0, 0, 0.5)";
+      // a red rect
+      context.fillStyle = "red";
+      context.fillRect(100, 100, 100, 100);
+      context.strokeStyle = "blue";
+      context.strokeRect(150, 150, 100, 100);
+      context.fillStyle = "rgba(0,255,0,0.5)";
+      context.fillRect(200, 200, 100, 100);
+      //转换图像
+      var imgURL = drawing.toDataURL("image/png");
+      var image = document.createElement("img");
+      image.src = imgURL;
+      document.body.appendChild(image);
+    }
+    */
+    //渐变
+    if (drawing.getContext) {
+      var context = drawing.getContext("2d");
+      var gradient = context.createLinearGradient(100, 100, 300, 300);
+      gradient.addColorStop(0, "rgb(100,200,200)");
+      gradient.addColorStop(1, "rgb(200,200,100)");
+      context.fillStyle = gradient;
+      context.fillRect(0,0,100,100);
+      context.fillRect(100,100,100,100);
+      context.fillRect(200,200,100,100);
+      context.fillRect(300,300,100,100);
+      //gradient是一个渐变区域，只有在这个区域里才有渐变效果；
+    }
+  </script>
+  
+</body>
+</html>

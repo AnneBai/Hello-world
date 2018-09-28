@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+    <style>
+      
+      
+    </style>
+  </head>
+  <body>
+    
+    
+    
+  <script>
+    /*分析问题，解决步骤：
+    闭包概念
+    */
+	/*
+	// 1外部函数执行完毕，闭包变为全局函数
+	var name="A"; //全局变量
+	var obj={
+	  name:"B", //局部变量
+	  getName:function () {
+	    return function () {  //闭包，外部函数执行后返回此函数变为全局函数；
+		  return this.name;
+		}	
+	  }
+	};
+	alert(obj.getName()())  //"A"
+	
+	// 2外部函数执行时，内部变量保存当前对象，则闭包可访问此对象；闭包已变为全局函数但此变量值仍为外部函数执行时保存的值
+		var name="A"; //全局变量
+	var obj={
+	  name:"B", //局部变量
+	  getName:function () {
+	    var that=this;
+	    return function () {  //闭包，外部函数执行后返回此函数变为全局函数；
+		  return that.name;
+		};		
+	  }
+	};
+	alert(obj.getName()()) // "B" 
+	*/
+	/*
+	// 3外部函数的变量
+	function f(x) {
+	  var temp = x;
+	  return function(x) {
+	    temp += x;
+		alert(temp);
+	  }
+	}
+    var m=f(50);
+	//alert(m); // function(x) {temp += x;alert(temp)};这个函数中temp=x
+	//alert(m()) // (temp)NaN; (m())Undefined;
+	m(50) // 100 ，temp=x=50，temp=50+50;
+    m(10) // 110 , temp=100, temp=temp+10=110;
+	m(5) // 115 , temp=110, temp=temp+5=115;
+	*/
+	
+	// 计数器
+	function counter() {
+	  var count=0
+	  return function() {
+	    count++;
+		alert(count);
+	  }
+	}
+	var a=counter();
+	a(); // 1
+	a(); // 2
+	a(); // 3
+	
+	
+  </script>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+  </head>
+  <body>   
+  <script>
+    /*分析问题，解决步骤：
+    1 理解对象
+	2 创建对象
+	3 继承
+    */
+    //理解对象
+	//（创建方法：构造函数、对象字面量）；（属性类型：数据/访问器；Configurable/Enumerable ; Writable/Value; Get/Set;）
+	// Object.defineProperties()定义多个属性；
+	//读取属性的特性；Object.getOwnPropertyDiscriptor()
+	//创建对象：
+	//  工厂模式
+	/*
+	var Person = function(name,age,job) {
+	  var o = new Object();
+	  o.name = name;
+	  o.age = age;
+	  o.job = job;
+	  o.sayName = function() {alert(this.name);};
+	  return o;
+	}
+	var person1 = Person("Jack",22,"Engineer");
+	var person2 = Person("Mary",21,"doctor");
+		//person1.sayName(); // Jack
+		//person2.sayName(); // Mary
+		
+	alert(person1 instanceof Person); //false
+	alert(person2 instanceof Object); //true
+	alert(person1.constructor); // function Object(){[native code]}
+	*/
+	
+	/*//构造函数模式
+	function Person(name,age,job) {
+	  this.name=name;
+	  this.age=age;
+	  this.job=job;
+	  this.sayName=function() {
+	    alert(this.name)
+	  }
+	}
+	var person1 = new Person("Jack",22,"Engineer");
+	var person2 = new Person("Mary",21,"doctor");
+	person1.sayName();
+	person2.sayName();
+	*/
+	/*
+	//原型模式
+	function Person() {
+	  Person.prototype.name="Jack";
+	  Person.prototype.age=22;
+	  Person.prototype.job="Engineer";
+	  Person.prototype.sayName = function(){
+	    alert(this.name);
+	  };
+	}
+	var person1 = new Person();
+	var person2 = new Person();
+	//alert(person1.name === person2.name); // true
+	person2.name="Mary";
+	//alert(person1.name === person2.name); // false
+	//alert(person2 instanceof Person); // true
+	//alert(person2 instanceof Object); // true
+	//var keys1=Object.keys(person1);
+	//var keys2=Object.keys(person2);
+	//var keys11=Object.getOwnPropertyNames(Person.prototype);
+	//alert(keys1); // 无内容
+	//alert(keys2); // name
+	//alert(keys11);// constructor,name,age,job,sayName
+	Person.prototype.name="Anny";
+	alert(person1.name);// Anny;
+	alert(person2.name);// Mary;
+	Person.prototype={
+	  name:"Betty",
+	  age:20,
+	  sayName:function(){
+	  alert("changed");}
+	};
+	alert(person1.name);// Anny;
+	alert(person2.name);// Mary;
+	var person3=new Person();
+	alert(person3.name);// Jack;
+	person3.sayName(); // Jack;
+	*/
+	/*
+	function Person() {}
+	var person1=new Person();
+	person1.name="Kite";
+	console.log(Person.prototype)// Object{}
+	console.log(person1) //Person {name: "Kite"}
+	Person.prototype={
+	  name:"Betty",
+	  sayHi:function(){
+	    alert("Hi");
+	  }
+	};
+	var person2=new Person();
+	console.log(person2);//Person {}
+	console.log(Person.prototype); //Object {name: "Betty"}
+	person1.sayHi();// error: 无此函数；
+	person2.sayHi();
+	//对引用类型的数据，更改实例也会更改原型，
+	*/
+	/*
+	//组合使用构造函数模式和原型模式：
+	function Person(name,age,job,friends){
+	  this.name=name;
+	  this.age=age;
+	  this.job=job;
+	  this.friends=friends;
+	}
+	var person0 = new Person("xiaoxiong",1,"bear",["huahua","tingting"])
+	var aa=Person.prototype;
+	Person.prototype={
+	  constructor:Person, //不添加这一项，会使person1.constructor 为function Object(){[native code]};
+	  sayName:function(){
+	    alert(this.name);
+	  }
+	};
+	var bb=Person.prototype;
+	var person1=new Person("Mike",22,"B1",["Anny","Jack"]);
+	var person2=new Person("Lily",21,"B2",["Anny","Jack","Betty"]);
+	person1.friends.push("Mary");
+	//alert(person1.friends);// Anny,Jack,Mary
+	//alert(person2.friends);// Anny,Jack,Betty
+	//console.log(person1.constructor);
+	//console.log(person1 instanceof Person);//true
+	//console.log(person1 instanceof Object);//true
+	//console.log(person0.constructor);
+	//console.log(person0 instanceof Person);//false ,instanceof可用于确认实例和原型之间的关系；当构造函数在实例的原型链中即返回true;
+	//console.log(person0 instanceof Object);//true
+	//alert(Person.prototype.isPrototypeOf(person1));//true
+	//alert(Person.prototype.isPrototypeOf(person0));//false, isPrototypeOf也可用于确认实例和原型之间的关系；重写后的原型和原来的原型除了名字相同，没有联系；
+	console.log(person1); //Person{};
+	console.log(person0); //Person{};构造函数名字相同，但重写原型后，person1的原型已经不同，Person构造函数的原型指针指向了新原型；原person0则仍为原原型；
+	console.log(aa==bb); //false 
+	*/
+	/*
+	//原型继承
+	function sup(name){
+	  this.name=name;
+	}
+	sup.prototype={
+	  constructor:sup,
+	  sayName:function(){
+	    alert(this.name);
+	  }
+	};
+	function sub(age){
+	  this.age=age;
+	}
+	sub.prototype=new sup("Betty");//继承模板和原型；
+	var suba=new sub(3);
+	alert(suba.name);//Betty
+	alert(suba.age);//3
+	suba.sayName();//Betty
+	alert(suba.constructor); //function sup(...){...}
+	alert(suba instanceof sup);//true
+	*/
+	/*
+	//借用构造函数继承和组合继承
+	function sup(name){
+	  this.name=name;
+	}
+	sup.prototype = {
+	  constructor:sup,
+	  sayName:function(){
+	    alert(this.name);
+	  }
+	};
+	function sub(name,age){
+	  sup.call(this,name);  //借用构造函数继承，不继承原型只继承方法；
+	  this.age=age;
+	}
+	// 不继承原型，不能继承方法；
+	var a = new sub("Betty",22);
+	alert(a.name); // Betty;
+	//a.sayName(); //a.sayName is not a function;
+	//组合使用借用构造函数模式和原型模式：
+	sub.prototype = new sup(); 
+	var a = new sub("Betty",22);
+	alert(a.name); // Betty;
+	a.sayName(); //Betty;
+	*/
+	/*
+	// 寄生组合式继承
+	function sup(name){
+	  this.name=name;
+	}
+	sup.prototype={
+	  constructor:sup,
+	  sayName:function(){
+	    alert(this.name);
+	  }
+	};
+	function sub(name,age){
+	  sup.call(this,name);
+	  this.age=age;
+	}
+	function extant(subtype,suptype){
+	  var F=new Function(),pproto=suptype.prototype;
+	  F.prototype = pproto;
+	  subtype.prototype.constructor=sub;
+	  subtype.prototype=new F(); //继承原型
+      subtype.prototype.supclass=pproto;
+	}
+	extant(sub,sup);
+	var a = new sub("Betty",22);
+	alert(a.name); // Betty;
+	a.sayName(); //Betty;
+	sub.prototype.sayName=function(){
+	  alert("this has changed")
+	}
+	var b=new sub("Mary",21);
+	b.sayName(); // this has changed
+	b.supclass.sayName.call(b);// Mary
+    */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  </script>
+  </body>
+</html>
