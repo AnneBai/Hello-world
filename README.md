@@ -1,4 +1,7 @@
-# Hello-world
+# Personal Notes
 My first repository
-Hi there,
-This is the first time I come here, hope to learn and share more!
+
+Now it's a repository to save some personal study notes.
+
++ 2018.5   JavaScript
++ 2018.10  Algorithms
