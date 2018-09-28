@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>关于数据类型和操作符的几点笔记</title>
+  </head>
+  <body>
+    <div>
+      <p>空字符串(string)<br/>
+        空对象、空数组、null(object)<br/>
+        数值0、Infinity、NaN、其他非零数值(number)<br/>
+        true、false(boolean)<br/>
+        undefined(undefined)
+      </p>
+      <p>
+          a = "", falsy<br/>
+          b = 0, falsy<br/>
+          c = [], truthy<br/>
+          d = {}, truthy<br/>
+          e = Infinity, truthy<br/> 
+          f = NaN, falsy<br/>
+          g = undefined, falsy<br/>
+          h = false, falsy<br/>
+          i = null, falsy;
+      </p>
+      <p>
+        truthy和falsy;<br/>
+        truthy：转换为布尔值时为true的；<br/>
+        falsy：转换为布尔值时为false的；<br/>
+        <br/>
+        布尔操作符：<br/>
+        逻辑非一定返回布尔值；<br/>
+        逻辑与 和 逻辑或不一定返回布尔值，且均为短路操作符；<br/>
+        逻辑与：判断第一个操作数，falsy的情况包括6种：数值0，布尔值false，null, undefined, NaN, 空字符串"";<br/>
+               只有当第一个操作数为truthy的情况下，返回第二个操作数；<br/>
+        逻辑或：只要第一个操作数为truthy，就返回第一个操作数；第一个操作数为falsy的情况下，返回第二个操作数；<br/>
+        <br/>
+        避免取未定义或不存在的值报错：<br/>
+            《Javascript 语言精粹》P21:
+            <blockquote>尝试从undefined的成员属性中取值将会导致TypeeError异常，这时可以通过“&&”操作符来避免错误:<br/>
+            flight.equipment   // undefined<br/>
+            flight.equipment.model   //throw"TypeError"<br/>
+            flight.equipment && flight.equipment.model   //undefined<br/>
+            </blockquote>
+      </p>
+      <div>
+        <p>递增和递减操作符语句如果外部还有其他操作符，若为前置递增和递减操作，则整句被从左到右依次执行；<br/>
+          若为后置递增和递减操作，则是在其所在的外部语句求值之后再执行；</p>
+        <code>
+            var num1 = 2; 
+            var num2 = 20; 
+            var num3 = num1++ +num2; //22
+            var num4 = num1+num2; //23 如果写在num3，则为22
+        </code>
+        <p>递增或递减对操作数进行再赋值，会覆盖原来的值；</p>
+        <p>字符型数值前用“+”（或“-”变为负值）可以转变为数值类型，但只在本语句中有效；</p>
+        <p>字符型数值直接参与+或-运算则仍为字符型；</p>
+
+        <code> 
+            var num1 = '2'; 
+            var num2 = 20; 
+            var num3 = ++num1+num2; //23
+            var num4 = num1+num2;//23
+            var num5 = num2+num1;//23
+            num1 //3
+            typeof num1 //number
+        </code>
+        <code> 
+            var num1 = '2';
+            var num2 = 20; 
+            var num3 = +num1+num2; //22
+            var num4 = num1+num2;//220
+            var num5 = num2+num1;//202
+            num1  //'2'
+            typeof num1  //string
+        </code>
+      </div>
+    </div>
+    <script>
+      var a = "", 
+      b = 0, 
+      c = [], 
+      d = {}, 
+      e = Infinity, 
+      f = NaN,
+      g = undefined,
+      h = false,
+      i = null;
+      /* alert("a:"+ typeof a + ","+ "b:"+ typeof b) //a:string, b:number
+      alert("c:"+ typeof c + ","+ "d:"+ typeof d) //c:object, d:object
+      alert("e:"+ typeof e + ","+ "f:"+ typeof f) //e:number, f:number
+      alert("g:"+ typeof g + ","+ "h:"+ typeof h) //g:undefined, h:boolean
+      alert("i:"+ typeof i + ","+ "j:"+ typeof j) //i:number, j:undefined */
+      var num1 = '2'; //3,number
+      var num2 = 20; 
+      /* var num3 = num1++ +num2; //22
+      var num4 = num1+num2; //23 如果在num3之前执行，则为22*/
+      
+      var num3 = ++num1+num2; //23
+      var num4 = num1+num2;//23
+      var num5 = num2+num1;//23
+      alert(num1+","+num3+","+num4+","+num5+","+typeof num1);
+    </script>
+  </body>
+</html>

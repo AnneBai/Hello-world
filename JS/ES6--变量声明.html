@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <div id="ndContainer">
+      I'm a black box.
+    </div>
+
+    <script>
+      // var arr = [];
+      // for (let i = 0; i < 5; i++) {
+      //   arr[i] = function () {
+      //     let i = 10;
+      //     console.log(i);
+      //   };
+      // }
+      // arr[3]();
+      // for (let i = 0; i < 5; i++) {
+      //   console.log(x + i);
+      //   var x = 10; // NaN, 11, 12, 13, 14
+      // }
+      // for (let i = 0; i < 5; i++) {
+      //   console.log(x + i);
+      //   let x = 10; // ReferenceError: x is not defined
+      // }
+      // var arr = [];
+      // for (let i = 0; i < 5; i++) {
+      //   arr[i] = function () {
+      //     console.log(i);
+      //     let i = 10;
+      //   };
+      // } 
+      // arr[3]();  //ReferenceError: i is not defined
+
+      //变量的解构赋值
+      // var [a, b, c, ...d] = [1, 2];
+      // console.log(a);  // 1
+      // console.log(b);  // 2
+      // console.log(c);  // undefined
+      // console.log(d);  // []
+      
+      // let[a] = 1; //TypeError: 1 is not iterable
+      // let[b] = null; //TypeError: null is not iterable
+      // let[c] = undefined; //TypeError: undefined is not iterable
+      // let[d] = {}; //TypeError: {} is not iterable
+
+        // let obj = {prop1:p1, prop2:p2} = {prop1:"first", prop2:"second"};
+        // console.log(obj[prop1]);  // ReferenceError: prop1 is not defined
+        // console.log(obj["prop1"]); // "first"
+        // console.log(obj[p1]); // undefined
+        // console.log(p1); // "first"
+        let obj = {prop1, prop2} = {prop1:"first", prop2:"second"};
+        console.log(obj[prop1]);  // undefined
+        console.log(prop1);  // "first"
+        console.log(obj["prop1"]); // "first"
+        
+        let a = 5;
+      let b = 10;
+      function tag(s, v1, v2) {
+        console.log(s[0]);  //"hello"
+        console.log(s[1]);  //"world"
+        console.log(s[2]);  //""
+        console.log(s[3]);  //undefined
+        console.log(s);  // ["hello ", " world ", "", raw: Array(3)]
+        console.log(v1); // 15
+        console.log(v2); // 50
+        return "ok";
+      }
+      tag`hello ${a+b} world ${a*b}`;
+
+    //   String.raw = function (strings, ...values) {
+    //     let output = "";
+    //     let i = 0;
+    //     let len = values.length;
+    //     for (i = 0; i < len; i++) {
+    //         output += strings.raw[i] + values[i];
+    //     }
+    //     output += strings.raw[i];
+    //     return output;
+    // }
+      console.log(String.raw`hello \n world ${a*b}`);
+      console.log`hello \n world ${a*b}`;
+        
+      
+    
+    </script>
+  </body>
+</html>

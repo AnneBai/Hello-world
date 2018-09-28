@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <script>
+// create a Symbol
+      let s = Symbol("name");
+      let s1 = Symbol(3);
+      // alert(typeof s); // symbol
+      // alert(s); //Uncaught TypeError: Cannot convert a Symbol value to a string
+      // console.log(s); // Symbol(name)
+      // console.log(s1); //  Symbol(3)
+
+      // console.log(s1+2); //Uncaught TypeError: Cannot convert a Symbol value to a number
+      // console.log(Number(s1)+2); //Uncaught TypeError: Cannot convert a Symbol value to a number
+      // console.log(String(s1)+2); //Symbol(3)2
+      // console.log(Boolean(s1)+2); //3
+      // let s2 = Symbol(3);
+      // console.log(s2 === s1);  // false
+      // console.log(s2.toString() === s1.toString()); //true
+      // if (s2) {
+      //   console.log(s2)
+      // } else {
+      //   console.log("error");
+      // }  // Symbol(3)
+      // let s0 = Symbol();
+      // console.log(Boolean(s0)); // true
+//定义一组常量，避免重复
+      // const COLOR_RED    = Symbol();
+      // const COLOR_GREEN  = Symbol();
+
+      // function getComplement(color) {
+      //   switch (color) {
+      //     case COLOR_RED:
+      //       return COLOR_GREEN;
+      //     case COLOR_GREEN:
+      //       return COLOR_RED;
+      //     default:
+      //       throw new Error('Undefined color');
+      //     }
+      // }
+// Symbol.for(), Symbol.keyFor()
+    let a = Symbol("time");
+    let b = Symbol.for("time");
+    let c = Symbol.for("time");
+    console.log(a === b); // false
+    console.log(c === b); // true
+    </script>
+  </body>
+</html>

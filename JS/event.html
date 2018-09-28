@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+    <script src="bhh-utils.js"></script>
+  </head>
+  <body id="box2">
+  <div id="box1" style="width:200px; height:200px; background-color:pink;">
+    <div id="box" style="width:100px; height:100px; background-color:lightblue;">
+      I'm a black box.
+    </div>
+  </div>
+
+    <script>
+      
+      // document.body.onclick = function (event) {
+      //   event = EventUtil.getEvent(event);
+      //   var target = EventUtil.getTarget(event);
+      //   switch (target.id) {
+      //     case "box":
+      //       target.style.backgroundColor = "lightgreen";
+      //       alert("this is box");
+      //       break;
+      //     case "box1":
+      //       target.style.backgroundColor = "yellow";
+      //       alert("this is box1");
+      //       break;
+      //     case "box2":
+      //       target.style.backgroundColor = "#eee";
+      //       alert("this is box2");
+      //       break;
+      //     // default:
+      //     //   target.style.backgroundColor = "purple";
+      //   }
+      // };
+      document.body.onclick = function (event) {
+        event = EventUtil.getEvent(event);
+        var target = EventUtil.getTarget(event);
+        switch (target.id) {
+          case "box":
+            this.style.backgroundColor = "lightgreen";
+            alert("this is box");
+            break;
+          case "box1":
+            this.style.backgroundColor = "yellow";
+            alert("this is box1");
+            break;
+          case "box2":
+            this.style.backgroundColor = "#eee";
+            alert("this is box2");
+            break;
+          // default:
+          //   target.style.backgroundColor = "purple";
+        }
+      };
+      
+         
+      
+
+        
+      
+    
+    </script>
+  </body>
+</html>

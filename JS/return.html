@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="utf-8"/>
+		<title>关于return</title>
+  </head>
+	<body>
+		<a id="link" href="http://www.baidu.com">这是百度链接</a>
+		<p id="p">这是段落</p>
+	<script>
+		var a = document.getElementById("link");
+		var p = document.getElementById("p");
+		// a.onclick = function () {
+		// 	p.innerText="false" //会执行
+		// 	return false; //不会跳转页面--取消默认行为；
+		// };
+		function sayno() {
+			return false; 
+		}
+		a.onclick = function () {
+			alert("aa");//会执行
+			return sayno(); //sayno()返回false时不会跳转；但返回true时会跳转。
+		};
+    
+	</script>
+	</body>
+</html>

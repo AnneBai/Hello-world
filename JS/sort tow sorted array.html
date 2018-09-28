@@ -1,0 +1,82 @@
+<script type="text/javascript">
+
+	function sortArray(arr1, arr2) {
+	let len1 = arr1.length,
+	    len2 = arr2.length,
+	    i=0, j=0,
+	    arrResult = [];
+	while (true) {
+		if (i >= len1 && j < len2) {
+			arrResult = arrResult.concat(arr2.slice(j));
+			break;
+		} else if (i < len1 && j >= len2) {
+			arrResult = arrResult.concat(arr1.slice(i));
+			break;
+		} else if (i >= len1 && j >= len2) {
+			break;
+		}
+		if (arr1[i] < arr2[j]) {
+			arrResult.push(arr1[i++]);
+		} else if (arr1[i] === arr2[j]) {
+			arrResult.push(arr1[i++]);
+			arrResult.push(arr2[j++]);
+		} else {
+			arrResult.push(arr2[j++]);
+		} 
+	}
+	return arrResult;
+}
+/*
+function sortArray(arr1, arr2) {
+  let len1 = arr1.length,
+  		len2 = arr2.length,
+  		arrResult = [],
+  		i = 0, j = 0, k = 0;
+  while (k < (len1 + len2)) {
+  	if (i >= len1 && j >= len2) {
+  		break;
+  	} else if (i >= len1) {
+  		arrResult[k] = arr2[j++];
+  		// arrResult = arrResult.concat(arr2.slice(j));
+  		// break;
+  	} else if ( j >= len2) {
+  	  arrResult[k] = arr1[i++];
+  		// arrResult = arrResult.concat(arr1.slice(i));
+  		// break;
+  	} else {
+	  	arrResult[k] = arr1[i] < arr2[j] ?
+	  	     arr1[i++] : arr2[j++];
+  	}
+	  	k++;
+  }
+  return arrResult;
+}
+*/
+// arr1, arr2均为已排序整数数组（假设从小到大）
+/*
+function sortArray(arr1, arr2) {
+  let len1 = arr1.length,
+  		len2 = arr2.length,
+  		arrResult = new Array(len1 + len2),
+  		i = 0, j = 0, k = 0;
+  do {
+    switch (true) {
+      case i < len1 && j < len2:
+        arrResult[k] = arr1[i] < arr2[j] ?
+            arr1[i++] : arr2[j++];
+        break;
+      case i >= len1:
+        arrResult[k] = arr2[j++];
+        break;
+      case j >= len2:
+        arrResult[k] = arr1[i++];
+        break;
+    }
+    k++;
+  } while (k < len1 + len2);
+  return arrResult;
+}
+*/
+console.log(sortArray([1,3,5,9], [2,6,11,22,33,44]));
+//[1, 2, 3, 5, 6, 9, 11, 22, 33, 44]
+</script>

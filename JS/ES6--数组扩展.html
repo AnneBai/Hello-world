@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+    <script src="bhh-utils.js"></script>
+  </head>
+  <body id="box2">
+  <div id="box1" style="width:200px; height:200px; background-color:pink;">
+    <div id="box" style="width:100px; height:100px; background-color:lightblue;">
+      I'm a black box.
+    </div>
+  </div>
+
+    <script>
+// 扩展运算符
+      // var a = [1,2,3],
+      //     b = [4,5,6],
+      //     c = [7,8,9];
+      // b.push(...a);
+      // console.log(b); //[4,5,6,1,2,3] 
+      // c.push(a);
+      // console.log(c); //[7,8,9,[1,2,3]]
+// 复制数组
+//       const a1 = [1,2];
+//       let a2 = [...a1];
+//       let [...a3] = a1;
+//       console.log(a2); //[1,2]
+//       console.log(a3); //[1,2]
+//       console.log(a1 == a3); //false
+//       console.log(a2 === a3); //false
+// // 合并数组
+//       var a = [1,2,3],
+//           b = [4,5,6],
+//           c = [7,8,9];
+//       console.log([...a, ...b, ...c]); //Array(9)
+// // Array.from可以接收第二个参数；类似于map
+// // 第二个参数方法中有this， 还可以在第三个参数中绑定this
+//       var a = {length:3, name:"obj1"}
+//       var b = Array.from(a);
+//       console.log(b); // [undefined, undefined, undefined]
+//       function fn() {
+//         return this.name;
+//       }
+//       var c = Array.from(a, fn, a);
+//       console.log(c); // ["obj1","obj1","obj1"]
+
+// fill方法
+    // x的值在初始化时是随机的，但数组中的值都是一样的
+      // var x = Math.floor(Math.random()*100);
+      // var a = new Array(10).fill(x);
+      // console.log(a);
+
+// entries() keys() values()
+    // var a = [{name:"Anne", age:20}, {name:"Tony", age:19}];
+    // for (let n of a.entries()) {
+    //   console.log(n);
+    // }
+// 空位
+var a = [, , , , ,];
+console.log(a.length); //5
+console.log(a[1]); // undefined
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

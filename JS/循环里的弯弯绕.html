@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>start with me</title>
+
+  </head>
+<body> 
+  <a href="#1">第一个链接</a><br/>
+  <a href="#2">第二个链接</a><br/>
+  <a href="#3">第三个链接</a>
+  
+  <script>
+    //同时执行最后一行，class都变成"no";
+    // var links = document.getElementsByTagName("a"),
+    //     i, 
+    //     len;
+    // for (i=0, len=links.length; i < len; i++) {
+    //     links[i].onclick = function () {
+    //         for (var j=0; j < len; j++) {
+    //             if (j === i) {
+    //                 links[j].className = "current";
+    //             } else {
+    //                 links[j].className = "no";
+    //             }
+    //         alert(i);
+    //         }
+    //     }
+    // }
+    //先循环遍历所有a元素的class归零，再给当前的元素添加className
+    var links = document.getElementsByTagName("a"),
+        i, 
+        len;
+    for (i=0, len=links.length; i < len; i++) {
+        links[i].onclick = function () {
+            for (var j=0; j < len; j++) {
+                links[j].className = "no";
+            }
+            this.className = "current";
+        }
+    }
+// 先给每个元素设置属性，点击函数中通过判断属性来判断设置什么class
+    // var links = document.getElementsByTagName("a"),
+    //     i, 
+    //     len;
+    // for (i=0, len=links.length; i < len; i++) {
+    //     links[i].index = i;
+    //     links[i].onclick = function () {
+    //         for (var j=0; j < len; j++) {
+    //             if (j === this.index) {
+    //                 links[j].className = "current";
+    //             } else {
+    //                 links[j].className = "no";
+    //             }  
+    //         }
+    //     }
+    // }
+    // var links = document.getElementsByTagName("a"),
+    //     i, 
+    //     len;
+    // for (i=0, len=links.length; i < len; i++) {
+    //     links[i].onclick = function (num) {
+    //         return function () {
+    //             for (var j=0; j < len; j++) {
+    //                 if (j === num) {
+    //                     links[j].className = "current";
+    //                 } else {
+    //                     links[j].className = "no";
+    //                 }
+    //             }
+    //             alert(num);
+    //         }
+    //     }(i);
+    // }
+
+  </script>
+  
+</body>
+</html>

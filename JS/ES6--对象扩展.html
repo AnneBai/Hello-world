@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+    <script src="bhh-utils.js"></script>
+  </head>
+  <body id="box2">
+  <div id="box1" style="width:200px; height:200px; background-color:pink;">
+    <div id="box" style="width:100px; height:100px; background-color:lightblue;">
+      I'm a black box.
+    </div>
+  </div>
+
+    <script>
+      // var name = "Anne",
+      //     age = 25;
+      // const person1 = {
+      //   name:name,
+      //   age:age,
+      //   sayMe () {
+      //     alert("My name is "+ this.name + ", " + this.age+" years old.")
+      //   }
+      // }
+      // person1.sayMe();
+// // 表达式属性      
+//       let a = "Bt";
+//       let person1 = {
+//         [a+"name"]:"Betty",
+//         [a+"age"]:26
+//       }
+//       alert(person1.Btname); // Betty
+//       alert(person1["Btage"]); // 26
+// // Object.is()  
+//       console.log(Object.is(+0, -0))   // false
+//       console.log(Object.is(NaN, NaN)); // true
+//       console.log(Object.is("1", 1)); //false
+
+// Object.assign()
+      // let a = Object.assign(2, "abc", true, [3, 4, 5]);
+      // console.log(a); // Number {2, 0:3, 1:4, 2:5}
+      // console.log(typeof a); // object
+      // console.log(a.length); // undefined
+      // console.log(a+3); // 5
+      // console.log(a instanceof Number); // true
+// 非对象值的处理
+      // let b = ["a0"];
+      // let c = {name:"xiaoa"}
+      // let a = Object.assign(b, ["a", "b", "c", "d"], true,"efg");
+      // console.log(a); // Number {2,0: "e", 1: "f", 2: "g", 3: "d"}
+      // console.log(typeof a); // object
+      // console.log(a.length); // 4
+      // console.log(a + 3); // e,f,g,d3
+      // console.log(a instanceof Array); // true
+      // console.log(b);
+// 浅拷贝
+      var b = {};
+      var c = {"name1":{first:"xiaoa"}}
+      var a = Object.assign(b, c);
+      console.log(b.name1); //{first:"xiaoa"}
+      c.name1.first = "daa"; 
+      console.log(b.name1); //{first:"daa"}
+      console.log(a.name1); //{first:"daa"}
+// 这种方式不会更改
+      c.name1 ={first:"thaa"}; 
+      console.log(b.name1); //{first:"daa"}
+      console.log(a.name1); //{first:"daa"}
+
+      // const obj1 = {a: {b: 1}};
+      // const obj2 = Object.assign({}, obj1);
+      // console.log(obj2.a.b) // 1
+      // obj1.a.b = 2;
+      // console.log(obj2.a.b) // 2
+    </script>
+  </body>
+</html>

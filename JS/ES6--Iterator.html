@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <script>
+      function makeIterator(array) {
+        var nextIndex = 0;
+        return {
+          next: function () {
+          return nextIndex < array.length?
+            {value: array[nextIndex++], done: false} :
+            {value: undefined, done: true};
+        }};
+      }
+      let a = makeIterator(["a", "2", "b"]);
+      console.log(a.next()); //{value: "a", done: false}
+      console.log(a.next()); //{value: "2", done: false}
+      console.log(a.next()); //{value: "b", done: false}
+      console.log(a.next()); //{value: undefined, done: true}
+
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<script type="text/javascript">
+	var res0 = {
+		status: 0,
+		data: "this is data"
+	};
+	var res1 = {
+		status: 1,
+		msg: "this is msg"
+	};
+
+	var output = function(res) {
+		output1(res.data, res.msg);
+		output2(res.data, res.msg);
+	};
+	var output1 = function(res) {
+    console.log(res);
+	};
+	var output2 = function(a, res) {
+    console.log(res);
+	};
+  output(res0); // this is data , undefined
+  output(res1); // undefined , this is msg
+</script>

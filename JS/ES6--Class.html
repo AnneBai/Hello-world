@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <script>
+//       class Fruit {
+//         constructor (name, color) {
+//           this.name = name;
+//           this.color = color;
+//         }
+//         sayIt () {
+//           console.log(this.name + ": " + this.color);
+//         }
+//       }
+//       let apple = new Fruit("apple", "red");
+//       apple.sayIt(); // apple: red
+
+//       // let apdesc = Object.getOwnPropertyDescriptor(apple, "name");
+//       // console.log(apdesc); // {value: "apple", writable: true, enumerable: true, configurable: true}
+// // 定义在class内部的方法不可枚举    
+//       let keys = Object.keys(apple);
+//       console.log(keys); // ["name", "color"]
+//       console.log(apple.__proto__); // ["name", "color"]
+
+      class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        
+        sayName() {
+            alert(this.name);
+        }
+      }
+
+      // var person1 = new Person("Angela", 18);
+      // person1.sayName();  // Angela
+      
+      class Fruit {
+        constructor() {
+          return new Person("Apple", 2);
+        }
+      }
+ 
+      // var apple = new Fruit();
+      // console.log(apple instanceof Fruit);  // false
+      // console.log(apple instanceof Person); // true
+
+      const Book = class {
+        constructor(name, price) {
+          this.name = name;
+          this.price = price;
+        }
+        sell() {
+          console.log(this.name+": $"+this.price);
+        }
+      }
+      // var book1 = new Book("English", 10);
+      // book1.sell(); // English: $10
+
+      // console.log(Book.name);
+      // console.log(Fruit.name);
+      // console.log(Person.name);
+
+      class Ebook extends Book {
+
+      }
+      var book2 = new Ebook("World", 5);
+      // book2.sell(); // world, $5
+      // console.log(book2 instanceof Book); // true
+      // console.log(book2 instanceof Ebook); // true
+      // console.log(book2); // Ebook {name:'world', price:5}
+
+      // class Ebook1 extends Book {
+      //   constructor(name, price) {
+      //     super(name, price);
+      //     this.type = "e-book";
+      //   }
+      //   read() {
+      //     console.log("let\'s read this new "+this.type+"--"+this.name);
+      //   }
+      // }
+      // var book3 = new Ebook1("Campus Chinese", 15);
+      // book3.read(); // let's read this new e-book--Campus Chinese
+      // console.log(book3); // Ebook1 {name: "Campus Chinese", price: 15, type: "e-book"}
+      // class Ebook1 extends Book {
+      //   constructor() {
+      //     // this.type = "e-book";  
+      //   }
+      // }
+      // var book3 = new Ebook1("Campus Chinese", 15);
+          /*Uncaught ReferenceError: Must call super constructor in derived class 
+          *before accessing 'this' or returning from derived constructor
+          */
+
+      class myArray extends Array {
+        constructor() {
+          super();
+        }
+      }
+      var arr1 = new myArray();
+      arr1.push("4");
+      arr1.push("8");
+      var arr2 = arr1.map((x) => x / 2);
+      console.log(arr1, arr2); // myArray(2) ["4", "8"] myArray(2) [2, 4]
+    </script>
+  </body>
+</html>

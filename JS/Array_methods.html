@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comparison of positioning schemes</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+    
+    <script>
+      var person = {
+        name: "Anne",
+        age:26
+      }
+      // var arr = [person.name,person.age];
+      /* var a1 = arr.concat("sayHi");
+      * document.write("原数组："+arr+" |新数组："+a1);//原数组：Anne,26|新数组：Anne,26,sayHi
+      */
+      /* var a2 = arr.reverse();//sort类似
+      *document.write("原数组："+arr+" |新数组："+a2);// 原数组：26,Anne |新数组：26,Anne */
+      // var a3 = arr.indexOf(26);
+      // document.write("原数组："+arr+" |返回结果："+a3);//原数组：Anne,26 |返回结果：1
+      // var a4 = arr.slice(1);
+      // document.write("原数组："+arr+" |返回结果："+a4);//原数组：Anne,26 |返回结果：26
+      // var a5 = arr.splice(1,1,"replace");
+      // document.write("原数组："+arr+" |返回结果："+a5); //原数组：Anne,replace |返回结果：26
+
+    //  var arr = [1,3,5,6,8,9,22,3];
+     /*  var everyResult = arr.every(function(item, index, array){
+        return item > 2;
+      });
+      var someResult = arr.some(function(item, index, array){
+        return item > 2;
+      });
+      var mapResult = arr.map(function(item, index, array){
+        return item >2;
+      });
+      var filterResult = arr.filter(function(item, index, array){
+        return item >2;
+      });
+      var forEachResult = arr.forEach(function(item, index, array){
+        return item +2;
+      });
+      document.write(everyResult+"<br/>");//false;
+      document.write(someResult+"<br/>");//true;
+      document.write(mapResult+"<br/>");//false,true,true,true,true,true,true,true
+      document.write(filterResult+"<br/>");//3,5,6,8,9,22,3
+      document.write(forEachResult+"<br/>");//item>2,'undefined';arr
+      document.write("原数组"+arr+"<br/>");//item+2,原数组没有被修改； */
+    var arr = [1,3,5,6,8,9,22,3];
+    var sum = arr.reduce(function(prev,cur,index,array){
+      return prev+cur;
+    });
+    document.write("原数组"+arr+" |返回结果："+sum+"<br/>");//原数组1,3,5,6,8,9,22,3
+
+
+    </script>
+    </body>
+</html>

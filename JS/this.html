@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>About this</title>
+  </head>
+  <body>
+    <p id="p1">这是一个段落</p>
+    <script>
+      // var color = "blue";
+      // function test() {
+      //   alert(this.color);
+      // }
+      // var obj = {
+      //   color:"red",
+      //   method:function () {
+      //     alert(this.color); //red
+      //     test(); //blue
+      //   },
+      //   method_1:test
+      // };
+      // obj.method(); // red; blue
+      // obj.method_1(); //red
+      // test(); //blue
+      // test.bind(obj)(); // red
+      // test.call(obj);// red
+      // test.apply(obj);// red
+
+      function test() {
+        alert(this);
+      }
+      var p1 = document.getElementById("p1");
+      // p1.onclick = test; //[object HTMLParagraphElement]
+      // p1.onclick = function () {
+      //   alert(this); //[object HTMLParagraphElement]
+      //   test();  //[object Window]
+      // }
+
+      // p1.onclick = function () {
+      //   var test1 = function () {
+      //     alert(this);
+      //   }
+      //   test1(); // [object Window]
+      // }
+      // p1.onclick = function () {
+      //   p1.test2 = function () {
+      //     alert(this);
+      //   }
+      //   p1.test2(); //[object HTMLParagraphElement]
+      // }
+      // p1.onmouseout = function () {
+      //   p1.test2(); 
+      // };
+      // var name = "Window",
+      //     age = 100,
+      //     say = function () {
+      //     alert(name + ", " + age)
+      //   };
+
+      // function Test() {
+      //   this.name = "Anne";
+      //   this.age = 18;
+      //   this.say = function () {
+      //     alert(this.name +", "+this.age);
+      //   }
+      // }
+      // var a = new Test(); 
+      // a.say();         // Anne, 18
+      // window.say();
+      // Test.call(window);  // window, 100
+      // window.say();    // Anne, 18
+      
+      //数组里的函数
+      var arr = [test1,"second","third"];
+      function test1() {
+        alert(this.length);
+      }
+      
+      arr[0]();  //3
+    
+    </script>
+
+  </body>
+</html>

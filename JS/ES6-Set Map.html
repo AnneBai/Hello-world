@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <script>
+      // set
+      // let a = new Set([1,2,"abc",[3,4]]);
+      // let b = [...a];
+      // let c = Array.from(a);
+      // console.log(b); //  [1, 2, "abc", [3,4]]
+      // console.log(c); //  [1, 2, "abc", [3,4]]
+
+      // let a = new Map();
+      // let n = [1,2];
+      // a.set(n,"first");
+      // console.log(a.get(n)); // "first"
+      // console.log(a.size); // 1
+      // console.log(a.has(n));  // true
+      // a.delete(n); 
+      // console.log(a.has(n)); // false
+
+// Map结构使用数组的map，filter方法
+      let a = new Map().set(1,"one").set(2,"two").set(3,"three");
+      let b = [...a].filter(([k, v]) => k < 3);
+      console.log(b); // [[1, "one"], [2, "two"]] 原型为数组
+      console.log(a); // {1 => "one", 2 => "two", 3 => "three"}
+
+      function mapToObj(map0) {
+        let obj0 = {};
+        for (let [k, v] of map0.entries()) {
+          obj0[k] = v;
+        }
+        return obj0;
+      }
+      console.log(mapToObj(a));
+      //{1: "one", 2: "two", 3: "three"}
+      function objToMap(obj0) {
+        let map0 = new Map();
+        for (let key of Object.keys(obj0)) {
+          map0.set(key, obj0[key]);
+        }
+        return map0;
+      }
+      console.log(objToMap({1:"a", 2:"aa", 3:"aaa"}));
+      // Map(3) {"1" => "a", "2" => "aa", "3" => "aaa"}
+
+
+    </script>
+  </body>
+</html>

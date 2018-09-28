@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>try something</title>
+    <style>
+    	#box1 {
+    		width:300px;
+    		height:200px;
+    		background-color: lightblue;
+    	}
+    	#box2 {
+    		margin:20px auto;
+    		width:200px;
+    		height:150px;
+    		background-color: pink;
+    	}
+    </style>
+  </head>
+
+  <body>
+  	<div id="box1">
+  		box1
+  		<div id="box2">
+  			box2
+  		</div>
+  	</div>
+    <script>
+      var box1 = document.getElementById('box1'),
+      		box2 = document.getElementById('box2');
+      box1.addEventListener('click', function(e) {alert('box1'); e.stopPropagation();}, true);
+      box2.addEventListener('click', function() {alert('box2');}, false);
+
+    </script>
+  </body>
+</html>

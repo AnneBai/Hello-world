@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+  </head>
+  <body>
+    <script>
+//getJson Ajax 实例
+      // const getJson = function (url) {
+      //   const promise = new Promise(function(resolve, reject){
+      //     const handler = function () {
+      //       if (this.readyState !== 4) {
+      //         return;
+      //       }
+      //       if (this.status === 200) {
+      //         resolve(this.responseText);
+      //       } else {
+      //         reject(new Error(this.statusText));
+      //       }
+      //     }
+      //     const XHR = new XMLHttpRequest();
+      //     XHR.open("GET", url, true);
+      //     XHR.responseType = "json";
+      //     XHR.onreadystatechange = handler;
+      //     XHR.setRequestHeader("Accept", "application/json");
+      //     XHR.send()
+      //   });
+      //   return promise;
+      // }
+      // getJson("posts.json").then(function(json){
+      //   console.log("Contents: "+json);
+      // }, function (error) {
+      //   console.error("Error: ", error);
+      // });
+// // 与事件循环相关的执行次序
+//       setTimeout(function () {console.log("setTimeout out1")}, 0);
+//       Promise.resolve().then(function () {
+//         console.log("Promise out1");
+//       });
+//       console.log("direct 1");
+//       setTimeout(function () {console.log("setTimeout out2")}, 0);
+//       Promise.resolve().then(function () {
+//         console.log("Promise out2");
+//       });
+//       console.log("direct 2");
+      // direct out1
+      // direct out2
+      // Promise out1
+      // Promise out2
+      // setTimeout out1
+      // setTimeout out2
+
+    </script>
+  </body>
+</html>

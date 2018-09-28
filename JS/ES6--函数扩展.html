@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+    <script src="bhh-utils.js"></script>
+  </head>
+  <body id="box2">
+  <div id="box1" style="width:200px; height:200px; background-color:pink;">
+    <div id="box" style="width:100px; height:100px; background-color:lightblue;">
+      I'm a black box.
+    </div>
+  </div>
+
+    <script>
+// 函数的参数默认值
+      // function foo({x, y = 5} = {}) {
+      //   console.log(x, y);
+      // }
+      // // foo(); // undefined 5
+      // function bar({x, y} = {x:0, y:0}) {
+      //   console.log(x, y);
+      // }
+      // function bar1({x=0, y=0} = {}) {
+      //   console.log(x, y);
+      // }
+      // bar();     //0  0
+      // bar1();    //0  0
+      // bar({x:2, y:3});    //2  3
+      // bar1({x:2, y:3});   //2  3
+      // bar({x:2});   // 2  undefined
+      // bar1({x:2});  // 2  0
+      // bar({y:2});   // undefined   2
+      // bar1({y:2});  // 0  2
+      // bar({z:4});   // undefined  undefined
+      // bar1({z:4});   // 0  0
+      // bar({});   // undefined  undefined
+      // bar1({});   // 0  0
+
+//设置默认值的参数有单独的作用域
+      // var x = 1;
+      // function foo(x = x) {
+      //   console.log(x); 
+      // }
+
+      // foo() // ReferenceError: x is not defined
+
+      // var x = 1;
+      // function foo(y = x) {
+      //   let x = 2;
+      //   console.log(y); 
+      // }
+
+      // foo() // 1
+      // var x = 1;
+      // function foo(x, y = x) {
+      //   x = 2;
+      //   console.log(y); 
+      // }
+      // foo(); // undefined
+      // foo(2); // 2
+      // console.log(x); // 1
+      // var x = 1;
+      // function foo(y = x) {
+      //   x = 2;
+      //   console.log(y); 
+      // }
+      // foo(); // 1
+      // console.log(x); // 2
+// rest参数
+      // function push(array, ...items) {
+      //   items.forEach(function(item) {
+      //     array.push(item);
+      //     console.log(item);
+      //   });
+      //   return array.length;
+      // }
+      // var a = [];
+      // console.log(push(a, 1, 2, 3));
+// 函数的name属性
+      // const f = function () {};
+      // console.log(f.name); // f
+      // const f1 = function func() {};
+      // console.log(f1.name); // func
+//箭头函数
+        // var f = (x) => {a:x};
+        // console.log(f(3)); // undefined
+        // var f = (x) => ({a:x});
+        // console.log(f(3)); // a : 3
+      // var f = function () {console.log(this.id);}
+      // var f1 = () => {console.log(this.id)};
+      // f.call({id:11});  // 11
+      // f.call({id:22});  // 22s
+      // f1.call({id:11}); // undefined
+      // f1.call({id:22}); // undefined
+      // function f0() {console.log(this.name)}
+      // var f = function () {console.log(this.name);};
+      // var f1 = () => {console.log(this.name)};
+      
+      //尾调用 Fibonacci数列案例
+      // function fib(n) {
+      //   if (n<=1) return 1;
+      //   return fib(n-1)+fib(n-2);
+      // }
+      // function fib1(n, ac1=1, ac2=1) {
+      //   if (n<=1) return ac2;
+      //   return fib1(n-1, ac2, ac1+ac2);
+      // }
+      // var start = new Date();
+      // console.log(fib(10));
+      // var end = new Date();
+      // var time = end - start;
+      // console.log(time);
+      // //参数为100时以上方程会无法计算--堆栈溢出；
+      // var start1 = new Date();
+      // console.log(fib1(10));
+      // var end1 = new Date();
+      // var time1 = end1 - start1;
+      // console.log(time1);
+      // //time1 小于10
+
+// 非严格模式下实现尾调用优化--循环
+// 递归函数
+//         function test(x, y) {
+//           if (y > 0) {
+//             return test(x+1, y-1);
+//           } else {
+//             return x;
+//           }
+//         }
+// // 蹦床函数
+//         function trampoline(fn) {
+//             while (fn && fn instanceof Function) {
+//               fn = fn();
+//             }
+//             return fn;          
+//         }
+// //改写递归函数
+//         function test1(x, y) {
+//           if (y > 0) {
+//             return test1.bind(null, x+1, y-1);
+//           } else {
+//             return x;
+//           }
+//         }
+// // 通过蹦床函数调用递归函数
+//         var a1 = trampoline(test1(1, 100000));
+//         console.log(a1); // 100001
+// function testbind(str) {
+//   return str + this;
+// }
+// var a1 = {name:"Bai"};
+
+// console.log(testbind.bind(a1)); 
+// // ƒ testbind(str) {
+// //   return str + this;
+// // }
+// console.log(testbind.bind(a1,"huahua")); 
+// // ƒ testbind(str) {
+// //   return str + this;
+// // }
+// console.log(testbind()); //undefined[object Window]
+// console.log(testbind.bind(a1,"huahua")()); //huahua[object Object]
+// console.log(testbind.bind(a1)("huahua")); //huahua[object Object]
+
+    </script>
+  </body>
+</html>

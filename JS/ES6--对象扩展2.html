@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>try something</title>
+    
+    <style>
+
+    </style>
+    
+  </head>
+  <body>
+    
+    
+
+    <script>
+      const proto = {
+        name:"river",
+        method: function () {
+          alert(this.name);
+        }
+      }
+      // const obj = {
+      //   name:"rock",
+      //   method1 () {
+      //     super.method();
+      //   }
+      // }
+      // const obj1 = {
+      //   name:"fish"
+      // }
+      // Object.setPrototypeOf(obj, proto);
+      // Object.setPrototypeOf(obj1, proto);
+      // obj.method1();  // rock
+      // obj1.method();  // fish
+
+      // let {keys,values,entries} = Object;
+      // for (let key of keys(obj)) {
+      //   console.log(key); 
+      // }
+      // name, method1
+      // console.log(Object.values(obj));  // ["rock", ƒ]
+      // console.log(Object.entries(obj));  // [Array(2), Array(2)]0: ["name", "rock"] 1: ["method1", ƒ]
+
+      // let aClone = {...obj};
+      // let aClone2 = Object.assign({}, obj);
+
+      // const clone1 = Object.assign(
+      //   Object.getPrototypeOf(obj),
+      //   obj
+      // );
+      // const clone2 = Object.create(
+      //   Object.getPrototypeOf(obj),
+      //   Object.getOwnPropertyDescriptors(obj)
+      // );
+      
+      const a = {name:"a", number:1};
+      const b = {...a, name:"b"};
+      alert(b.name); // b
+
+    </script>
+  </body>
+</html>
